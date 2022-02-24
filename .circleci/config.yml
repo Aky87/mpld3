@@ -1,0 +1,54 @@
+version: 2.1
+
+jobs:
+  
+  build-medium-amd64:
+    machine:
+      image: ubuntu-2004:202101-01
+   
+    working_directory: ~/mpld3
+    steps:
+      
+      
+      - checkout
+      - run:
+          name: ️️🏗️ pip dev requirements
+          command: |
+            uname -m
+            python3.7 -m venv venv37 && source venv37/bin/activate
+            python -m pip install --upgrade pip
+			      pip install -r requirements.txt
+			      python setup.py install
+			      pip install pytest
+			      pytest
+  build-medium-arm64:
+    machine:
+      image: ubuntu-2004:202101-01
+    resource_class: arm.medium
+    working_directory: ~/mpld3
+    steps:
+      
+      - checkout
+      - run:
+          name: ️️🏗️ pip dev requirements
+          command: |
+            uname -m
+            python3.7 -m venv venv37 && source venv37/bin/activate
+            python -m pip install --upgrade pip
+			      pip install -r requirements.txt
+			      python setup.py install
+			      pip install pytest
+			      pytest
+                    
+
+      
+  
+  
+
+workflows:
+  version: 2
+  python3.7:
+    jobs:
+      
+      - build-medium-amd64
+      - build-medium-arm64     
