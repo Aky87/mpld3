@@ -15,7 +15,7 @@ jobs:
           name: ️️🏗️ pip dev requirements
           command: |
             uname -m
-            python3.7 -m venv venv37 && source venv37/bin/activate
+            python3.8 -m venv venv38 && source venv38/bin/activate
             python -m pip install --upgrade pip
             pip install -r requirements.txt
             python setup.py install
@@ -33,7 +33,7 @@ jobs:
           name: ️️🏗️ pip dev requirements
           command: |
             uname -m
-            python3.7 -m venv venv37 && source venv37/bin/activate
+            python3.8 -m venv venv38 && source venv38/bin/activate
             python -m pip install --upgrade pip
             pip install -r requirements.txt
             python setup.py install
