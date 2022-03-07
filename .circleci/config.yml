@@ -22,8 +22,8 @@ jobs:
             python3 -m pip install --upgrade pip
             pip install -r requirements.txt
             python setup.py install
-            pip install pytest
-            pytest
+            export MPLBE=Agg HIDE_PLOTS=True nosetests mpld3
+            make test
   build-medium-arm64:
     machine:
       image: ubuntu-2004:202101-01
@@ -43,8 +43,8 @@ jobs:
             python3 -m pip install --upgrade pip
             pip install -r requirements.txt
             python setup.py install
-            pip install pytest
-            pytest
+            export MPLBE=Agg HIDE_PLOTS=True nosetests mpld3
+            make test
                     
 
       
